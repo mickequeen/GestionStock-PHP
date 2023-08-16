@@ -23,23 +23,25 @@
       if(mysqli_query($stringConnection, $query)){
 
         $fila = mysqli_affected_rows($stringConnection);
-        
         if($fila ==1 ){
           $msj = 'se ingresó su registro de producto';
         } else {
           $msj = 'NO se ingresó ná ni ná';
         }
-
       }
       return $msj;
     }
-/*    public function busquedaFruta($nombre){
-      $query = "SELECT * FROM `tbl_fruta` WHERE VCH_NOMBRE_FRUTA = '$nombre'";
+    public function busquedaProducto($nombre, $sucursal){
+      if($sucursal > 0){
+        $query = "SELECT * FROM `productos` WHERE (NOMBRE_PROD LIKE '%$nombre%') and (ID_SUCURSAL = $sucursal) or (ID_PRODUCTO  LIKE '%$nombre%') and (ID_SUCURSAL = $sucursal)";
+      } else { 
+        $query = "SELECT * FROM `productos` WHERE (NOMBRE_PROD LIKE '%$nombre%') or 
+      (ID_PRODUCTO  LIKE '%$nombre%')";  }
       $stringConnection = Conexion::conectar();
       $datos = mysqli_query($stringConnection, $query);
       mysqli_close($stringConnection);
       return $datos;
-    }*/
+    }
     public function listarSucursales(){
       $query = "SELECT * FROM `sucursales` WHERE 1";
       $stringConnection = Conexion::conectar();

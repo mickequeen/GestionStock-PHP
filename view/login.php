@@ -14,20 +14,15 @@
           <div class="col-sm-4 col-xs-4 col-md-4">
             <div class="space-top">
               <h3 class="text-center">Login Inventario</h3>
-              <!--  onsubmit="return validar()" -->
               <form class="form-horizontal" action="../controller/verificarUsuario.php" method="POST">
-
                 <label class=""> Usuario </label>
                 <input type="text" class="form-control" name="usuario" required autofocus>
-
                 <label class=""> Contraseña </label>
                 <input type="password" class="form-control" name="contra" required>
-
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                   Entrar
                 </button>
                 <a href="./dashboard.php"><div class="mt-3 btn btn-lg btn-secondary btn-block">Volver</div></a>
-                
               </form>
             </div>
           </div>

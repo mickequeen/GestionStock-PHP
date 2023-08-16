@@ -1,7 +1,6 @@
 <html>
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
   <section>
@@ -24,28 +23,22 @@
           <div class="space-top">
             <form action="../controller/ControllerIngresoSucursal.php" method="POST">
               <label class="">Ciudad Sucursal </label>
-              <input type="text" class="form-control" name="ciudad_sucursal" max-length="10" required autofocus>
+              <input type="text" class="form-control" name="ciudad_sucursal" maxlength="40" required autofocus>
 
               <label class=""> Comuna Sucusal </label>
-              <input type="text" class="form-control" name="comuna_sucursal" required>
+              <input maxlength="40" type="text" class="form-control" name="comuna_sucursal" required>
 
               <label class="">Dirección Sucursal </label>
-            <input type="text" class="form-control" name="direccion_sucursal" max-length="10" required autofocus>
-
-      
+            <input type="text" maxlength="60" class="form-control" name="direccion_sucursal"  required autofocus>
           </div>
         </div>
 
         <div class="col-sm-4 col-xs-4 col-md-4">
           <div class="space-top">
-
-
             <label class="">Teléfono Sucursal</label>
-            <input type="number" name="telefono_sucursal" class="form-control" placeholder="" required>
-
+            <input maxlength="11" type="number" name="telefono_sucursal" class="form-control" placeholder="" required>
             <label class="">Mail Sucursal</label>
-            <input type="text" class="form-control" name="mail_sucursal" max-length="10" required autofocus>
-
+            <input maxlength="60" type="text" class="form-control" name="mail_sucursal" required autofocus>
             <button class="btn btn-lg btn-success btn-block" type="submit">
               Ingresar Sucursal
             </button>

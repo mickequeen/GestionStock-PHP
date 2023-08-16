@@ -1,36 +1,56 @@
+<?php
+  include('./../model/ModeloGestionStock.php');
+  $modeloGestionStock = new ModeloGestionStock();
+  $sucursales = $modeloGestionStock->listarSucursales();
+
+?>
+<!--  -->
 <html>
-
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
-
 <body>
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h2 class="text-center">Dashboard</h2>
+        <div class="col-4">
+          <a href="./../view/menuAdmin.php">
+            <div  style="width:17em; float: right" class="btn btn-lg btn-primary btn-block cursor mb-3">
+            ⇦  Volver a menú anterior
+            </div>
+          </a>
+        </div>
+        <div class="col-8">
+          <h3 class="text-center">Búsqueda de producto</h3>
         </div>
       </div>
       <div class="row justify-content-around ">
+
         <div class="col-sm-4 col-xs-4 col-md-4">
           <div class="space-top">
-            <a href="./login.php">
-              <button class="btn btn-lg btn-success btn-block" type="submit">
-                Login
-              </button>
-            </a>
-            <a href="./busquedaProducto.php">
-              <button class="btn btn-lg btn-success btn-block" type="submit">
-               Buscar Producto de inventario
-              </button>
-            </a>
+            <form action="../controller/ControllerBusquedaProd.php" method="POST">
+              <label class="">Ingrese Nombre o Código de producto</label>
+              <input type="text" class="form-control" name="nombre_cod" maxlength="40" required autofocus>              
+              
+              <label class="">Sucursal </label>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="sucursal_busqueda">
+              <option value="0">Seleccionar Sucursal</option>
+                <?php
+                foreach ($sucursales as $sucursal) {
+                  $id_suc = $sucursal['ID_SUCURSAL'];
+                  $comuna_suc = $sucursal['COMUNA_SUC'];
+                  echo '<option value="'.$id_suc.'">'.$comuna_suc.'</option>';
+                }
+                ?>
+              </select>
           </div>
         </div>
 
         <div class="col-sm-4 col-xs-4 col-md-4">
           <div class="space-top">
+            <button class="btn btn-lg btn-success btn-block" type="submit">
+              Ingresar Búsqueda
+            </button>
             </form>
           </div>
         </div>
@@ -59,7 +79,7 @@
       font-family: 'Open Sans', sans-serif;
     }
 
-    h3, h2 {
+    h3 {
       color: #ecf0f1;
     }
 

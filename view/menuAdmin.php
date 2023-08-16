@@ -22,31 +22,26 @@
                 Ingresar Producto
               </button>
             </a>
-
             <a href="./ingresoSucursal.php">
               <button class="btn btn-lg btn-success btn-block" type="submit">
                Ingresar Sucursal
               </button>
             </a>
-
-            <a href="./">
-              <button class="btn btn-lg btn-success btn-block" type="submit">
+            <a>
+              <button class="btn btn-lg btn-success btn-block" type="submit" disabled>
                Ingresar Usuario
               </button>
             </a>
-
-      
           </div>
         </div>
 
         <div class="col-sm-4 col-xs-4 col-md-4">
           <div class="space-top">
-            <a href="./">
+            <a href="./busquedaProducto.php">
               <button class="btn btn-lg btn-success btn-block" type="submit">
                Buscar Producto de inventario
               </button>
             </a>
-
             <a href="./dashboard.php">
               <button class="btn btn-lg btn-success btn-block" type="submit">
                Volver a menú principal
