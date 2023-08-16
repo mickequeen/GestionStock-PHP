@@ -1,53 +1,71 @@
+<?php
+
+include ('./../model/ModeloGestionStock.php');
+
+$id_prod =$_POST['id_prod'];
+$cat_prod =$_POST['cat_prod'];
+$id_suc =$_POST['id_suc'];
+$nombre_prod =$_POST['nombre_prod'];
+$precio_prod =$_POST['precio_prod'];
+$stock_prod =$_POST['stock_prod'];
+
+$objActivar = new ModeloGestionStock();
+$respuesta = $objActivar->activarProducto($id_prod);
+
+?>
 <html>
-<head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-</head>
+<head>
+  <title>activar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h3 class="text-center">Añadir Sucursal</h3>
-        </div>
-      </div>
-      <div class="row justify-content-around ">
-
-        <div class="col-sm-6 col-xs-6 col-md-6">
-          <div class="space-top">
-            <form action="../controller/ControllerIngresoSucursal.php" method="POST">
-              <label class="">Ciudad Sucursal </label>
-              <input type="text" class="form-control" name="ciudad_sucursal" maxlength="40" required autofocus>
-
-              <label class=""> Comuna Sucusal </label>
-              <input maxlength="40" type="text" class="form-control" name="comuna_sucursal" required>
-
-              <label class="">Dirección Sucursal </label>
-            <input type="text" maxlength="60" class="form-control" name="direccion_sucursal"  required autofocus>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-xs-6 col-md-6">
-          <div class="space-top">
-            <label class="">Teléfono Sucursal</label>
-            <input maxlength="11" type="number" name="telefono_sucursal" class="form-control" placeholder="" required>
-            <label class="">Mail Sucursal</label>
-            <input maxlength="60" type="text" class="form-control" name="mail_sucursal" required autofocus>
-            <button class="btn btn-lg btn-success btn-block" style="height:60px; display: flex; align-items: center; justify-content: center;margin-top: 55px;" type="submit">
-              Ingresar Sucursal
-            </button>
-            </form>
-            <a href="./../view/menuAdmin.php">
-            <div class="btn btn-lg btn-secondary btn-block mt-3 cursor" style="height:60px; display: flex; align-items: center; justify-content: center;" >
-              ⇦ Volver a menú
-            </div>
-          </a>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+        <h2 class="mb-3 text-center" style="color: fff" ><?php echo $respuesta; ?></h2>
       </div>
     </div>
-  </section>
+    <div class="row justify-content-around">
+      <div class="col-12">
+      <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID del Producto</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Sucursal</th>
+                <th scope="col">Nombre del Producto</th>
+                <th scope="col">Precio venta</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?php echo $id_prod; ?></td>
+                <td><?php echo $cat_prod; ?></td>
+                <td><?php echo $id_suc; ?></td>
+                <td><?php echo $nombre_prod; ?></td>
+                <td><?php echo $precio_prod; ?></td>
+                <td><?php echo $stock_prod; ?></td>
+                <td>Activo</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <a href="./../view/busquedaProducto.php">
+          <div  class="btn btn-lg btn-secondary btn-block mt-3 cursor" style="height:60px; display: flex; align-items: center; justify-content: center;">
+            ⇦  Volver a Menú de Búsqueda
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
@@ -59,7 +77,8 @@
 
   <script type="text/javascript">
   </script>
-  <style>
+</body>
+<style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
     body {
@@ -128,6 +147,5 @@
       border-radius: 0;
     }
   </style>
-</body>
-
 </html>
+

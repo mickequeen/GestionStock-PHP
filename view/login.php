@@ -22,7 +22,6 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                   Entrar
                 </button>
-                <a href="./dashboard.php"><div class="mt-3 btn btn-lg btn-secondary btn-block">Volver</div></a>
               </form>
             </div>
           </div>

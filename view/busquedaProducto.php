@@ -13,20 +13,14 @@
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-4">
-          <a href="./../view/menuAdmin.php">
-            <div  style="width:17em; float: right" class="btn btn-lg btn-primary btn-block cursor mb-3">
-            ⇦  Volver a menú anterior
-            </div>
-          </a>
-        </div>
-        <div class="col-8">
+  
+        <div class="col-12">
           <h3 class="text-center">Búsqueda de producto</h3>
         </div>
       </div>
       <div class="row justify-content-around ">
 
-        <div class="col-sm-4 col-xs-4 col-md-4">
+        <div class="col-sm-6 col-xs-6 col-md-6">
           <div class="space-top">
             <form action="../controller/ControllerBusquedaProd.php" method="POST">
               <label class="">Ingrese Nombre o Código de producto</label>
@@ -46,13 +40,18 @@
           </div>
         </div>
 
-        <div class="col-sm-4 col-xs-4 col-md-4">
+        <div class="col-sm-4 col-xs-4 col-md-4 pl-5">
           <div class="space-top">
-            <button class="btn btn-lg btn-success btn-block" type="submit">
+            <button class="btn btn-lg btn-success btn-block" style="height:60px; display: flex; align-items: center; justify-content: center;margin-top: 55px;" type="submit">
               Ingresar Búsqueda
             </button>
             </form>
           </div>
+          <a href="./../view/menuAdmin.php">
+            <div class="btn btn-lg btn-secondary btn-block mt-3 cursor" style="height:60px; display: flex; align-items: center; justify-content: center;" >
+              ⇦ Volver a menú
+            </div>
+          </a>
         </div>
       </div>
     </div>

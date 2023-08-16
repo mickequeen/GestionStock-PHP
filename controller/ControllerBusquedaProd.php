@@ -16,13 +16,13 @@ $respuesta = $objBusqueda->busquedaProducto($nombre_codigo, $sucursal);
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row ">
       <div class="col-12">
-        <h2 class="mb-3" style="color: fff" >Resultado de la búsqueda</h2>
+        <h2 class="mb-3 text-center" style="color: fff" >Resultado de la búsqueda</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-8">
+      <div class="col-12">
         <table style='border: 1px solid #ccc;'>
         <tr style='border: 1px solid #ccc;'>
           <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>ID Producto</th>
@@ -56,26 +56,28 @@ $respuesta = $objBusqueda->busquedaProducto($nombre_codigo, $sucursal);
           <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$stock.'</td>
           <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$estado.'</td>
           <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">
-            '.(($estado=='activo'? ' <form action="../view/DesactivarProducto.php" method="POST">' :  '<form action="../view/ActivarProducto.php" method="POST">')).'
-            <input type="hidden" name="id_fruta" value="'.$id.'">
-            <input type="hidden" name="nombre_fruta" value="'.$cat.'">
-            <input type="hidden" name="precio_fruta" value="'.$id_suc.'">
-            <input type="hidden" name="sucursal_fruta" value="'.$nombre_prod.'">
-            <input type="hidden" name="cantidad_fruta" value="'.$precio.'">
-            <input type="hidden" name="cantidad_fruta" value="'.$stock.'">
+            '.(($estado=='Activo'? ' <form action="../view/desactivarProducto.php" method="POST">' :  '<form action="../view/activarProducto.php" method="POST">')).'
+            <input type="hidden" name="id_prod" value="'.$id.'">
+            <input type="hidden" name="cat_prod" value="'.$cat.'">
+            <input type="hidden" name="id_suc" value="'.$id_suc.'">
+            <input type="hidden" name="nombre_prod" value="'.$nombre_prod.'">
+            <input type="hidden" name="precio_prod" value="'.$precio.'">
+            <input type="hidden" name="stock_prod" value="'.$stock.'">
+            <input type="hidden" name="estado" value="'.$estado.'">
             <button class="btn btn-lg '.(($estado== 'Activo'? 'btn-warning' : 'btn-info')).' btn-block" type="submit">
             <p>'.(($estado== 'Activo'? 'Desactivar' : 'Activar')).'</p>
             </button>
             </form>
           </td>
           <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">
-          <form action="../view/EliminarProducto.php" method="POST">
-          <input type="hidden" name="id_fruta" value="'.$id.'">
-          <input type="hidden" name="nombre_fruta" value="'.$cat.'">
-          <input type="hidden" name="precio_fruta" value="'.$id_suc.'">
-          <input type="hidden" name="sucursal_fruta" value="'.$nombre_prod.'">
-          <input type="hidden" name="cantidad_fruta" value="'.$precio.'">
-          <input type="hidden" name="cantidad_fruta" value="'.$stock.'">
+          <form action="../view/eliminarProducto.php" method="POST">
+          <input type="hidden" name="id_prod" value="'.$id.'">
+          <input type="hidden" name="cat_prod" value="'.$cat.'">
+          <input type="hidden" name="id_suc" value="'.$id_suc.'">
+          <input type="hidden" name="nombre_prod" value="'.$nombre_prod.'">
+          <input type="hidden" name="precio_prod" value="'.$precio.'">
+          <input type="hidden" name="stock_prod" value="'.$stock.'">
+          <input type="hidden" name="estado" value="'.$estado.'">
           <button class="btn btn-lg btn-danger btn-block" type="submit">
           <p> ELIMINAR</p>
           </button>
@@ -93,7 +95,7 @@ $respuesta = $objBusqueda->busquedaProducto($nombre_codigo, $sucursal);
     <div class="row">
       <div class="col-12">
         <a href="./../view/busquedaProducto.php">
-          <div  style="width:17em;" class="btn btn-lg btn-primary btn-block cursor mt-3">
+          <div class="btn btn-lg btn-secondary btn-block mt-3 cursor" style="height:60px; display: flex; align-items: center; justify-content: center;">
             ⇦  Volver a Menú de Búsqueda
           </div>
         </a>

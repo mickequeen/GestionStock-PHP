@@ -42,9 +42,9 @@
                Buscar Producto de inventario
               </button>
             </a>
-            <a href="./dashboard.php">
-              <button class="btn btn-lg btn-success btn-block" type="submit">
-               Volver a menú principal
+            <a href="./login.php">
+              <button class="btn btn-lg btn-secondary btn-block" type="submit">
+               Volver al login
               </button>
             </a>
           </div>
