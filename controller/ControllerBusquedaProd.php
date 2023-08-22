@@ -22,41 +22,74 @@ $respuesta = $objBusqueda->busquedaProducto($nombre_codigo, $sucursal);
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
-        <table style='border: 1px solid #ccc;'>
-        <tr style='border: 1px solid #ccc;'>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>ID Producto</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>ID Categoría</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>ID Sucursal</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Nombre Producto</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Descripción Producto</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Precio Venta</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Stock</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Estado</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Cambiar Estado</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Eliminar</th>
-        </tr>";
-        <?php
-        foreach($respuesta as $value){
-          $id = $value['ID_PRODUCTO'];
-          $cat = $value['ID_CATEGORIA'];
-          $id_suc = $value['ID_SUCURSAL'];
-          $nombre_prod = $value['NOMBRE_PROD'];
-          $desc = $value['DESCRIPCION_PROD'];
-          $precio = $value['PRECIO_VTA'];
-          $stock = $value['STOCK_PROD'];
-          $estado = $value['ESTADO_PROD'];
-          echo '<tr>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$id.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$cat.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$id_suc.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$nombre_prod.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$desc.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$precio.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$stock.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">'.$estado.'</td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">
-            '.(($estado=='Activo'? ' <form action="../view/desactivarProducto.php" method="POST">' :  '<form action="../view/activarProducto.php" method="POST">')).'
+      <div class="col-sm-12 col-xs-12 col-md-12">
+        <table class="table table-bordered table-dark">
+        <thead>
+          <tr style='border: 1px solid #ccc;'>
+            <th scope="col">ID Producto</th>
+            <th scope="col">ID Categoría</th>
+            <th scope="col">ID Sucursal</th>
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">Descripción Producto</th>
+            <th scope="col">Precio Venta</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Cambiar Estado</th>
+            <th scope="col">Actualizar Producto</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          foreach($respuesta as $value){
+            $id = $value['ID_PRODUCTO'];
+            $cat = $value['ID_CATEGORIA'];
+            $id_suc = $value['ID_SUCURSAL'];
+            $nombre_prod = $value['NOMBRE_PROD'];
+            $desc = $value['DESCRIPCION_PROD'];
+            $precio = $value['PRECIO_VTA'];
+            $stock = $value['STOCK_PROD'];
+            $estado = $value['ESTADO_PROD'];
+            echo '<tr>
+            <td>'.$id.'</td>
+            <td>'.$cat.'</td>
+            <td>'.$id_suc.'</td>
+            <td>'.$nombre_prod.'</td>
+            <td>'.$desc.'</td>
+            <td>'.$precio.'</td>
+            <td>'.$stock.'</td>
+            <td>'.$estado.'</td>
+            <td>
+              '.(($estado=='Activo'? ' <form action="../view/desactivarProducto.php" method="POST">' :  '<form action="../view/activarProducto.php" method="POST">')).'
+              <input type="hidden" name="id_prod" value="'.$id.'">
+              <input type="hidden" name="cat_prod" value="'.$cat.'">
+              <input type="hidden" name="id_suc" value="'.$id_suc.'">
+              <input type="hidden" name="nombre_prod" value="'.$nombre_prod.'">
+              <input type="hidden" name="precio_prod" value="'.$precio.'">
+              <input type="hidden" name="stock_prod" value="'.$stock.'">
+              <input type="hidden" name="estado" value="'.$estado.'">
+              <button class="btn btn-lg '.(($estado== 'Activo'? 'btn-outline-warning' : 'btn-outline-primary')).' btn-block" type="submit">
+              <p style="padding: 0; margin: 0">'.(($estado== 'Activo'? 'Desactivar' : 'Activar')).'</p>
+              </button>
+              </form>
+            </td>
+            <td>
+            <form action="../view/actualizarProducto.php" method="POST">
+            <input type="hidden" name="id_prod" value="'.$id.'">
+            <input type="hidden" name="cat_prod" value="'.$cat.'">
+            <input type="hidden" name="id_suc" value="'.$id_suc.'">
+            <input type="hidden" name="nombre_prod" value="'.$nombre_prod.'">
+            <input type="hidden" name="descripcion" value="'.$desc.'">
+            <input type="hidden" name="precio_prod" value="'.$precio.'">
+            <input type="hidden" name="stock_prod" value="'.$stock.'">
+            <input type="hidden" name="estado" value="'.$estado.'">
+            <button class="btn btn-lg btn-outline-info btn-block" type="submit">
+            <p style="padding: 0; margin: 0"> Actualizar </p>
+            </button>
+            </form>
+          </td>
+            <td>
+            <form action="../view/eliminarProducto.php" method="POST">
             <input type="hidden" name="id_prod" value="'.$id.'">
             <input type="hidden" name="cat_prod" value="'.$cat.'">
             <input type="hidden" name="id_suc" value="'.$id_suc.'">
@@ -64,30 +97,16 @@ $respuesta = $objBusqueda->busquedaProducto($nombre_codigo, $sucursal);
             <input type="hidden" name="precio_prod" value="'.$precio.'">
             <input type="hidden" name="stock_prod" value="'.$stock.'">
             <input type="hidden" name="estado" value="'.$estado.'">
-            <button class="btn btn-lg '.(($estado== 'Activo'? 'btn-warning' : 'btn-info')).' btn-block" type="submit">
-            <p>'.(($estado== 'Activo'? 'Desactivar' : 'Activar')).'</p>
+            <button class="btn btn-lg btn-danger btn-block" type="submit">
+            <p style="padding: 0; margin: 0"> ELIMINAR </p>
             </button>
             </form>
           </td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center">
-          <form action="../view/eliminarProducto.php" method="POST">
-          <input type="hidden" name="id_prod" value="'.$id.'">
-          <input type="hidden" name="cat_prod" value="'.$cat.'">
-          <input type="hidden" name="id_suc" value="'.$id_suc.'">
-          <input type="hidden" name="nombre_prod" value="'.$nombre_prod.'">
-          <input type="hidden" name="precio_prod" value="'.$precio.'">
-          <input type="hidden" name="stock_prod" value="'.$stock.'">
-          <input type="hidden" name="estado" value="'.$estado.'">
-          <button class="btn btn-lg btn-danger btn-block" type="submit">
-          <p> ELIMINAR</p>
-          </button>
-          </form>
-        </td>
 
-        </tr>';
-        }
-        ?>
-
+          </tr>';
+          }
+          ?>
+        </tbody>
       </table>
     
       </div>

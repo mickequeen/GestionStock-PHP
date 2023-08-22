@@ -21,32 +21,36 @@ $msj = $objSucursal->insertSucusal($ciudad_suc, $comuna_suc, $dire_suc, $fono_su
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-sm-12 col-xs-12 col-md-12 ">
         <h2 class="mb-3 text-center" style="color: fff" ><?php echo $msj; ?></h2>
       </div>
     </div>
     <div class="row justify-content-around">
-      <div class="col-12 ">
-        <table style='border: 1px solid #ccc;'>
-        <tr style='border: 1px solid #ccc;'>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Ciudad Sucursal</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Comuna Sucursal</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Dirección Sucursal</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Fono Sucursal</th>
-          <th style='border: 1px solid #ccc; color: #ccc; padding: 3px 10px;'>Mail Sucursal</th>
-        </tr>
-        <tr>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center"><?php echo $ciudad_suc; ?></td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center"><?php echo $comuna_suc; ?></td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center"><?php echo $dire_suc; ?></td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center"><?php echo $fono_suc; ?></td>
-          <td style="border: 1px solid #ccc; color:#ccc; padding:3px 10px; text-align:center"><?php echo $mail_suc; ?></td>
-        </tr>
+      <div  class="col-sm-12 col-xs-12 col-md-12 ">
+        <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Ciudad Sucursal</th>
+            <th scope="col">Comuna Sucursal</th>
+            <th scope="col">Dirección Sucursal</th>
+            <th scope="col">Fono Sucursal</th>
+            <th scope="col">Mail Sucursal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><?php echo $ciudad_suc; ?></td>
+            <td><?php echo $comuna_suc; ?></td>
+            <td><?php echo $dire_suc; ?></td>
+            <td><?php echo $fono_suc; ?></td>
+            <td><?php echo $mail_suc; ?></td>
+          </tr>
+        </tbody>
       </table>
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-sm-12 col-xs-12 col-md-12 ">
         <a href="./../view/menuAdmin.php">
           <div class="btn btn-lg btn-secondary btn-block mt-3 cursor" style="height:60px; display: flex; align-items: center; justify-content: center;">
             ⇦  Volver a Menú Principal
@@ -56,18 +60,6 @@ $msj = $objSucursal->insertSucusal($ciudad_suc, $comuna_suc, $dire_suc, $fono_su
     </div>
   </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-  <script type="text/javascript">
-  </script>
 </body>
 <style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -105,12 +97,6 @@ $msj = $objSucursal->insertSucusal($ciudad_suc, $comuna_suc, $dire_suc, $fono_su
 
     button {
       margin-top: 20px;
-    }
-
-    .border-login {
-      border-right: 1px solid #fff;
-      min-height: 450px;
-      float: right;
     }
 
     .space-top {
